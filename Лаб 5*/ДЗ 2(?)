@@ -1,0 +1,14 @@
+USE company;
+SELECT 
+product.product_name AS 'Product Name',
+employee.last_name as 'Employee Last Name',
+employee.first_name as 'Employee First Name'
+from orders 
+inner join product using (product_id)
+inner join invoice using (invoice_id)
+inner join customer using (customer_id)
+inner join employee using (employee_id)
+inner join department using (department_id)
+where department.department_name = 'Mercury'
+and orders.order_datetime between '2023-07-01' and '2023-10-01'
+order by orders.orders_id;

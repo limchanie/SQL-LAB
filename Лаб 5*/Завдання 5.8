@@ -1,0 +1,23 @@
+SELECT 
+-- Emloyee as e
+e.employee_id "Employee ID",
+e.last_name "Employee Last Name",
+e.first_name "Employee First Name",
+e.position "Employee Title",
+e.manager_id "Employee Manager ID",
+e.department_id "Employee Department ID",
+-- Manager as m
+m.employee_id "Manager ID",
+m.last_name "Manager Last Name",
+m.first_name "Manager First Name",
+m.position "manager Position",
+m.department_id "Manager Gepartment ID",
+-- department
+d.department_id "Department ID",
+d.department_name "Department Name",
+d.city "Department City"
+FROM department AS d
+RIGHT JOIN employee as e
+ON e.department_id = d.department_id
+LEFT JOIN employee as m
+ON e.manager_id = m.employee_id;

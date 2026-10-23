@@ -1,0 +1,17 @@
+USE company;
+SELECT 
+orders.orders_id AS 'Orders ID',
+product.product_name AS 'Product Name',
+product.category AS 'Product Category',
+invoice.invoice_id AS 'Invoice ID',
+invoice.transaction_moment AS 'Transaction Moment',
+customer.last_name as 'Customer Last Name',
+customer.first_name as 'Customer First Name'
+from orders 
+inner join product 
+on orders.product_id = product.product_id
+inner join invoice 
+on orders.invoice_id = invoice.invoice_id
+inner join customer  
+on invoice.customer_id = customer.customer_id
+order by orders.orders_id;

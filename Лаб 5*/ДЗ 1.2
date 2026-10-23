@@ -1,0 +1,14 @@
+USE company;
+SELECT 
+orders.orders_id AS 'Orders ID',
+product.product_name AS 'Product Name',
+product.category AS 'Product Category',
+invoice.invoice_id AS 'Invoice ID',
+invoice.transaction_moment AS 'Transaction Moment',
+customer.last_name as 'Customer Last Name',
+customer.first_name as 'Customer First Name'
+from orders, product, invoice, customer
+where orders.product_id = product.product_id 
+and orders.invoice_id = invoice.invoice_id
+and invoice.customer_id = customer.customer_id
+order by orders.orders_id;

@@ -1,0 +1,6 @@
+USE company;
+SELECT *
+FROM product 
+WHERE (category = 'NOTEBOOK' OR category = 'Desktops')
+AND (product_description LIKE '%512GB%'
+OR product_description LIKE '%1TB%')

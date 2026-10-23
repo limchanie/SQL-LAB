@@ -1,0 +1,11 @@
+SELECT 
+e.employee_id "Employee ID",
+e.last_name "Employee Last Name",
+e.first_name "Employee First Name",
+e.position "Employee Title",
+i.employee_id "Invoice Employee ID",
+i.invoice_id "Invoice",
+i.transaction_moment "Transaction moment"
+FROM employee AS e
+NATURAL JOIN invoice AS i
+ORDER BY i.transaction_moment;

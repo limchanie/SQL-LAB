@@ -1,0 +1,20 @@
+SELECT
+c.customer_id as 'Customer ID',
+c.last_name as 'Last Name',
+c.first_name as'First Name',
+i.invoice_id as 'Invoice ID',
+i.transaction_moment as 'Transaction Moment'
+FROM customer AS c
+LEFT JOIN invoice AS i using (customer_id)
+
+UNION
+
+SELECT
+c.customer_id,
+c.last_name,
+c.first_name,
+i.invoice_id,
+i.transaction_moment
+FROM customer AS c
+RIGHT JOIN invoice AS i using (customer_id)
+ORDER BY `Invoice ID`;
