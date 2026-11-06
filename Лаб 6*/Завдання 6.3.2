@@ -1,0 +1,9 @@
+use company;
+select
+min(rate) 'Lowest salary',
+max(rate) 'Highest salary',
+format(avg(bonus),2)
+as 'Average Bonus by Employee',
+format(sum(bonus)/count(*),2)
+as 'Average Bonus by Company'
+from employee;

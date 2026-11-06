@@ -1,0 +1,12 @@
+USE company;
+SELECT
+Lpad(c.customer_id, 3, '0') as 'Customer ID',
+c.last_name as 'Customer last name',
+c.first_name as 'Customer first name',
+round(sum(o.quantity * p.price), 2) as `Total Amount`
+from orders o
+join invoice i using (invoice_id)
+join customer c using (customer_id)
+join product p using (product_id)
+group by c.customer_id, c.last_name, c.first_name
+order by `Tota

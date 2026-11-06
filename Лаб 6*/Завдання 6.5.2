@@ -1,0 +1,12 @@
+use company;
+select
+d.department_name,
+position,
+count(*) 'Count Employee by Position'
+from employee e
+join department d
+on e.department_id = d.department_id 
+where city = 'LVIV'
+group by position, d.department_id
+having count(*) = 1
+order by d.department_name;

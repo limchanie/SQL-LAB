@@ -1,0 +1,8 @@
+use company;
+select
+first_name 'First name',
+last_name 'Last name',
+date_format(employment_date, "%d %M %Y") as 'Date of hiring',
+format(datediff(curdate(), employment_date)/365.22,1) 'Length of service',
+timestampdiff(year, employment_date, curdate()) as 'Years of service'
+from employee;

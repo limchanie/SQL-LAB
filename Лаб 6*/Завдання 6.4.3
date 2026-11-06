@@ -1,0 +1,6 @@
+use company;
+select
+position as 'Position',
+count(*) as 'Count Employee by Position'
+from employee
+group by position;

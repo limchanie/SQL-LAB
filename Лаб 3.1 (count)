@@ -1,0 +1,14 @@
+USE company;
+SELECT * FROM department;
+SELECT * FROM employee;
+SELECT * FROM customer;
+SELECT * FROM product;
+SELECT * FROM invoice;
+SELECT * FROM orders;
+
+SELECT 'department' AS table_name, COUNT(*) AS row_count FROM department
+UNION ALL SELECT 'employee', COUNT(*) FROM employee
+UNION ALL SELECT 'customer', COUNT(*) FROM customer
+UNION ALL SELECT 'product',  COUNT(*) FROM product
+UNION ALL SELECT 'invoice',  COUNT(*) FROM invoice
+UNION ALL SELECT 'orders',   COUNT(*) FROM orders;

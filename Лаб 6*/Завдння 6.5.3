@@ -1,0 +1,15 @@
+use company;
+select
+d.department_name,
+last_name,
+first_name,
+position,
+count(invoice_id) 'Employee by Sales'
+from department d
+join employee e
+on e.department_id = d.department_id 
+join invoice i
+on e.employee_id = i.employee_id
+group by i.employee_id
+having count(invoice_id) > 10
+order by count(invoice_id) desc;

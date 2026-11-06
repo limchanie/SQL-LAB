@@ -1,0 +1,8 @@
+use company;
+select
+department_id,
+position,
+count(*) as 'Count Employee'
+from employee
+group by department_id, position
+having count(*) > 1;

@@ -1,0 +1,8 @@
+use company;
+select
+lpad(product_id, 4, '0') as 'Product ID',
+concat(manufacture, ' :: ',
+trim(substring_index(product_name, '/', 1))) as 'Product Name',
+upper(concat(product_type, ' - ', category)) as 'Category'
+from product
+order by manufacture;

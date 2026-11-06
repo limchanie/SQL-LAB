@@ -1,0 +1,13 @@
+USE company;
+SELECT
+p.product_id as 'Product ID',
+p.product_name as 'Product Name',
+p.price as 'Product Price',
+sum(o.quantity) as 'Product Quantity',
+round(sum(o.quantity * p.price), 2) as 'Total Amount'
+from orders o
+join product p 
+using (product_id)
+group by p.product_id, p.product_name, p.price
+having sum(o.quantity * p.price) > 50000
+order by 'Total Amount' desc;
